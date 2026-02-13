@@ -1,252 +1,250 @@
 // start with declaration variables
-let setPara = document.getElementById('setPara');
-let country = document.getElementsByClassName('country')
-let countryImage = document.getElementById('countryImage');
-let phoneNumber  = document.getElementById('phone-number');
-let mail = document.getElementById('mail');
-let address = document.getElementById('address');
-let header = document.querySelector('header');
-let frist_thick = document.getElementById('frist-thick')
-let second_thick = document.getElementById('second-thick')
-let third_thick = document.getElementById('third-thick')
-let fourt_thick = document.getElementById('fourt-thick')
-let fifth_thick = document.getElementById('fifth-thick')
-let sixth_thick = document.getElementById('sixth-thick')
-let seventh_thick = document.getElementById('seventh-thick')
-let eighth_thick = document.getElementById('eighth-thick')
-let ninth_thick = document.getElementById('ninth-thick')
-let y_tick = document.getElementsByClassName('y-tick')
-let path = document.querySelectorAll('.path')
+const setPara = document.getElementById('setPara');
+const countryLabel = document.querySelector('.country');
+const countryImage = document.getElementById('countryImage');
+const phoneNumber = document.getElementById('phone-number');
+const mail = document.getElementById('mail');
+const address = document.getElementById('address');
+const header = document.querySelector('header');
+const yTick = document.querySelector('.y-tick');
+const ticks = document.querySelectorAll('.x-tick');
 
-// declaration countries
-let morocco = document.getElementById('morocco');
-let reime_ruanda = document.getElementById('reime-ruanda') 
-let nigeria = document.getElementById('nigeria');
-let togo  = document.getElementById('togo');
-let ghana = document.getElementById('ghana');
-let reime_ghana = document.getElementById('reime-ghana');
-let drc = document.getElementById('drc');
-let ivorycoast = document.getElementById('ivorycoast')
-let burkina  = document.getElementById('burkina')
-let niger = document.getElementById('niger');
-let gabon = document.getElementById('gabon');
-let ethiopia = document.getElementById('ethiopia')
-let kenya = document.getElementById('kenya');
-let uganda  = document.getElementById('uganda');
-let tanzania = document.getElementById('tanzania');
-let ghana_2  = document.getElementById('ghana')
-// end of declaration
+const countryData = {
+  morocco: {
+    name: 'Reime Morocco',
+    setup: 'Setup of Netis Group in Morocco',
+    image: 'images/morocco.png',
+    imageAlt: 'Map highlight for Morocco',
+    phone: '+212 6744 94786',
+    email: 'morocco@netisgroup.net',
+    address: 'Casablanca, Morocco',
+    year: 2010,
+  },
+  ruanda: {
+    name: 'Rwanda',
+    setup: 'Setup of Netis Group in Rwanda',
+    image: 'images/ruanda.jpg',
+    imageAlt: 'Map highlight for Rwanda',
+    phone: '+250 9494 03040',
+    email: 'rwanda@netisgroup.net',
+    address: 'Kigali, Rwanda',
+    year: 2020,
+  },
+  'reime-ruanda': {
+    name: 'Reime Rwanda',
+    setup: 'Setup of Netis Group in Rwanda',
+    image: 'images/ruanda.jpg',
+    imageAlt: 'Map highlight for Rwanda',
+    phone: '+250 9494 03040',
+    email: 'rwanda@netisgroup.net',
+    address: 'Kigali, Rwanda',
+    year: 2020,
+  },
+  nigeria: {
+    name: 'Reime Nigeria',
+    setup: 'Setup of Netis Group in Nigeria',
+    image: 'images/nigeria.png',
+    imageAlt: 'Map highlight for Nigeria',
+    phone: '+234 8949 4900',
+    email: 'nigeria@netisgroup.net',
+    address: 'Lagos, Nigeria',
+    year: 2021,
+  },
+  togo: {
+    name: 'Reime Togo',
+    setup: 'Setup of Netis Group in Togo',
+    image: 'images/togo.png',
+    imageAlt: 'Map highlight for Togo',
+    phone: '+228 9449 3339',
+    email: 'togo@netisgroup.net',
+    address: 'Lomé, Togo',
+    year: 2019,
+  },
+  ghana: {
+    name: 'Ghana',
+    setup: 'Setup of Netis Group in Ghana',
+    image: 'images/ghana.jpg',
+    imageAlt: 'Map highlight for Ghana',
+    phone: '+233 7839 4786',
+    email: 'ghana@netisgroup.net',
+    address: 'Accra, Ghana',
+    year: 2018,
+  },
+  ghana_2: {
+    name: 'Ghana',
+    setup: 'Setup of Netis Group in Ghana',
+    image: 'images/ghana.jpg',
+    imageAlt: 'Map highlight for Ghana',
+    phone: '+233 7839 4786',
+    email: 'ghana@netisgroup.net',
+    address: 'Accra, Ghana',
+    year: 2018,
+  },
+  'reime-ghana': {
+    name: 'Reime Ghana',
+    setup: 'Setup of Netis Group in Reime Ghana',
+    image: 'images/ghana.jpg',
+    imageAlt: 'Map highlight for Ghana',
+    phone: '+233 7817 4786',
+    email: 'reime_ghana@netisgroup.net',
+    address: 'Accra, Ghana',
+    year: 2017,
+  },
+  drc: {
+    name: 'Reime DRC',
+    setup: 'Setup of Netis Group in DRC',
+    image: 'images/drc.jpg',
+    imageAlt: 'Map highlight for the DRC',
+    phone: '+243 0797 37494',
+    email: 'drc@netisgroup.net',
+    address: 'Kinshasa, DRC',
+    year: 2016,
+  },
+  ivorycoast: {
+    name: "Reime Côte d'Ivoire",
+    setup: "Setup of Netis Group in Côte d'Ivoire",
+    image: "images/d'ivoire.jpg",
+    imageAlt: "Map highlight for Côte d'Ivoire",
+    phone: '+212 5222 29582',
+    email: 'info.group@netisgroup.net',
+    address:
+      'The Ivory Coast Business Center Building, 4th floor, No.2 Mandarona lot, Sidi Maarouf, Zenith Center, Casablanca 20270, Morocco',
+    year: 2013,
+  },
+  burkina: {
+    name: 'Reime Burkina Faso',
+    setup: 'Setup of Netis Group in Burkina Faso',
+    image: 'images/burkina.jpg',
+    imageAlt: 'Map highlight for Burkina Faso',
+    phone: '+226 9734 94786',
+    email: 'burkina@netisgroup.net',
+    address: 'Ouagadougou, Burkina Faso',
+    year: 2011,
+  },
+  niger: {
+    name: 'Reime Niger',
+    setup: 'Setup of Netis Group in Niger',
+    image: 'images/niger.jpg',
+    imageAlt: 'Map highlight for Niger',
+    phone: '+227 9844 94786',
+    email: 'niger@netisgroup.net',
+    address: 'Niamey, Niger',
+    year: 2010,
+  },
+  gabon: {
+    name: 'Reime Gabon',
+    setup: 'Setup of Netis Group in Gabon',
+    image: 'images/gabon.jpg',
+    imageAlt: 'Map highlight for Gabon',
+    phone: '+241 6744 94786',
+    email: 'gabon@netisgroup.net',
+    address: 'Libreville, Gabon',
+    year: 2009,
+  },
+  ethiopia: {
+    name: 'Reime Ethiopia',
+    setup: 'Setup of Netis Group in Ethiopia',
+    image: 'images/ethiopia.jpg',
+    imageAlt: 'Map highlight for Ethiopia',
+    phone: '+251 6394 786',
+    email: 'ethiopia@netisgroup.net',
+    address: 'Addis Ababa, Ethiopia',
+    year: 2010,
+  },
+  kenya: {
+    name: 'Reime Kenya',
+    setup: 'Setup of Netis Group in Kenya',
+    image: 'images/kenya.jpg',
+    imageAlt: 'Map highlight for Kenya',
+    phone: '+254 9994 786',
+    email: 'kenya@netisgroup.net',
+    address: 'Nairobi, Kenya',
+    year: 2017,
+  },
+  uganda: {
+    name: 'Reime Uganda',
+    setup: 'Setup of Netis Group in Uganda',
+    image: 'images/uganda.jpg',
+    imageAlt: 'Map highlight for Uganda',
+    phone: '+256 6744 98838',
+    email: 'uganda@netisgroup.net',
+    address: 'Kampala, Uganda',
+    year: 2013,
+  },
+  tanzania: {
+    name: 'Reime Tanzania',
+    setup: 'Setup of Netis Group in Tanzania',
+    image: 'images/tanzania.jpg',
+    imageAlt: 'Map highlight for Tanzania',
+    phone: '+255 7783 338',
+    email: 'tanzania@netisgroup.net',
+    address: 'Dodoma, Tanzania',
+    year: 2018,
+  },
+};
 
+const highlightTick = (year) => {
+  ticks.forEach((tick) => {
+    tick.classList.toggle('active-tick', tick.dataset.year === String(year));
+  });
+};
 
+const updateCountry = (countryId) => {
+  const data = countryData[countryId];
+  if (!data) {
+    return;
+  }
 
-path.forEach(pays => {
-    pays.addEventListener('click', () => {
-        // Remove the 'selected-country' class from the previously selected button
-        const prevSelectedPays = document.querySelector('.selected');
-        if (prevSelectedPays && prevSelectedPays !== pays) {
-            prevSelectedPays.classList.remove('selected');
-        }
+  setPara.textContent = data.setup;
+  countryLabel.textContent = data.name;
+  countryImage.src = data.image;
+  countryImage.alt = data.imageAlt;
+  phoneNumber.textContent = data.phone;
+  mail.textContent = data.email;
+  address.textContent = data.address;
+  header.textContent = data.year;
+  yTick.textContent = data.year;
+  highlightTick(data.year);
+};
 
-        // Toggle the 'selected-country' class for the currently clicked button
-        pays.classList.toggle('selected');
-    });
-});
+const setSelectedPath = (targetPath) => {
+  const previous = document.querySelector('.path.selected');
+  if (previous && previous !== targetPath) {
+    previous.classList.remove('selected');
+  }
+  targetPath.classList.add('selected');
+};
 
+const attachCountryListener = (group) => {
+  const path = group.querySelector('.path');
+  if (!path) {
+    return;
+  }
 
-// start with morocco 
-morocco.addEventListener('click',()=>{
-    setPara.innerText="Setup of Netis Group in Morocco";
-    country[0].innerText="Reime Morocco";
-    countryImage.src = "images/morocco.png";
-    phoneNumber.innerText="+212 674494786"
-    mail.innerText="morocco@netisgroup.net";
-    address.innerText="the casablanca................";
-    header.innerText = "2010";
-    y_tick[0].innerText ="2010"
-})
+  const countryId = group.id;
+  const label = countryData[countryId]?.name || group.id;
 
-// end wih morocco
+  path.setAttribute('role', 'button');
+  path.setAttribute('tabindex', '0');
+  path.setAttribute('aria-label', `Select ${label}`);
 
-// start with reime-ruanda
-reime_ruanda.addEventListener('click',()=>{
-    setPara.innerText="Setup of Netis Group in Reime-ruanda";
-    country[0].innerText="reime-ruanda";
-    countryImage.src = "images/ruanda.jpg";
-    phoneNumber.innerText="+29 949403040"
-    mail.innerText="reime_ruanda@netisgroup.net"
-    address.innerText="the reime_ruanda................"
-    header.innerText = "2020"
-    y_tick[0].innerText ="2020"
+  const handleSelect = () => {
+    updateCountry(countryId);
+    setSelectedPath(path);
+  };
 
-})
-// end with reime-ruanda
+  path.addEventListener('click', handleSelect);
+  path.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleSelect();
+    }
+  });
+};
 
+const countryGroups = document.querySelectorAll('.county');
+countryGroups.forEach(attachCountryListener);
 
-// start with nigeria
-nigeria.addEventListener('click',()=>{
-    setPara.innerText="Setup of Netis Group in Nigeria";
-    country[0].innerText="Reime Nigeria";
-    countryImage.src = "images/nigeria.png";
-    phoneNumber.innerText="+202 89494900"
-    mail.innerText="nigeria@netisgroup.net"
-    address.innerText="the nigeria................"
-    header.innerText = "2021"
-    y_tick[0].innerText ="2021"
-})
-// end with reime-ruanda
-
-// start with reime-ruanda
-togo.addEventListener('click',()=>{
-    setPara.innerText="Setup of Netis Group in Togo";
-    country[0].innerText="Reime Togo";
-    countryImage.src = "images/togo.png";
-    phoneNumber.innerText="+29 944933339"
-    mail.innerText="togo@netisgroup.net"
-    address.innerText="the togo................"
-    header.innerText = "2019"
-    y_tick[0].innerText ="2019"
-})
-// end with reime-ruanda
-// start with ghana and reime-ghana
-ghana,ghana_2.addEventListener('click',()=>{
-    setPara.innerText="Setup of Netis Group in Ghana";
-    country[0].innerText="Ghana";
-    countryImage.src = "images/ghana.jpg";
-    phoneNumber.innerText="+212 78394786"
-    mail.innerText="ghana@netisgroup.net"
-    address.innerText="the ghana................"
-    header.innerText = "2018"
-    y_tick[0].innerText ="2018"
-})
-reime_ghana.addEventListener('click',()=>{
-    setPara.innerText="Setup of Netis Group in Reime Ghana";
-    country[0].innerText="Reime Ghana";
-    countryImage.src = "images/ghana.jpg";
-    phoneNumber.innerText="+212 78174786"
-    mail.innerText="reime_ghana@netisgroup.net"
-    address.innerText="the reime_ghana................"
-    header.innerText = "2017"
-    y_tick[0].innerText ="2017"
-})
-// end with ghana and reime-ghana
-
-// start with drc
-drc.addEventListener('click',()=>{
-    setPara.innerText="Setup of Netis Group in  Drc";
-    country[0].innerText="Reime Drc";
-    countryImage.src = "images/drc.jpg";
-    phoneNumber.innerText="+212 079737494"
-    mail.innerText="drc@netisgroup.net"
-    address.innerText="the drc................"
-    header.innerText = "2016"
-    y_tick[0].innerText ="2016"
-})
-// end with drc
-
-// start with ivorycoast
-ivorycoast.addEventListener('click',()=>{
-    setPara.innerText="Setup of Netis Group in Cote d'ivoire";
-    country[0].innerText="Reime Cote d'ivoire";
-    countryImage.src = "images/d'ivoire.jpg";
-    phoneNumber.innerText="+212 5222-29582";
-    mail.innerText="info.group@netisgroup.net"
-    address.innerText="The ivorycoast Business center building, 4th floor,No.2 Mandarona lot, Sidi Maarouf,Zenith Center, Casablanca 20270, Morocco"
-    header.innerText = "2013"
-    y_tick[0].innerText ="2013"
-})
-// end with ivorycoast
-
-// start with burkina
-burkina.addEventListener('click',()=>{
-    setPara.innerText="Setup of Netis Group in Burkina";
-    country[0].innerText="Reime Burkina";
-    countryImage.src = "images/burkina.jpg";
-    phoneNumber.innerText="+212 973494786"
-    mail.innerText="burkina@netisgroup.net"
-    address.innerText="the burkina................"
-    header.innerText = "2011"
-    y_tick[0].innerText ="2011"
-})
-// end with burkina
-
-// start with niger
-niger.addEventListener('click',()=>{
-    setPara.innerText="Setup of Netis Group in  Niger";
-    country[0].innerText="Reime Niger";
-    countryImage.src = "images/niger.jpg";
-    phoneNumber.innerText="+212 984494786"
-    mail.innerText="niger@netisgroup.net"
-    address.innerText="the niger................"
-    header.innerText = "2010"
-    y_tick[0].innerText ="2010"
-})
-
-// end with niger
-
-// start with ethiopia
-ethiopia.addEventListener('click',()=>{
-    setPara.innerText="Setup of Netis Group in  Ethiopia";
-    country[0].innerText="Reime Ethiopia";
-    countryImage.src = "images/ethiopia.jpg";
-    phoneNumber.innerText="+22 6394786"
-    mail.innerText="ethiopia@netisgroup.net"
-    address.innerText="the ethiopia................"
-    header.innerText = "2010"
-    y_tick[0].innerText ="2010"
-})
-// end with ethiopia
-
-// start with gabon
-gabon.addEventListener('click',()=>{
-    setPara.innerText="Setup of Netis Group in Gabon";
-    country[0].innerText="Reime Gabon";
-    countryImage.src = "images/gabon.jpg";
-    phoneNumber.innerText="+2 674494786"
-    mail.innerText="gabon@netisgroup.net"
-    address.innerText="the gabon................"
-    header.innerText = "2009"
-    y_tick[0].innerText ="2009"
-})
-
-// end with gabon
-
-// kenya with gabon
-
-kenya.addEventListener('click',()=>{
-    setPara.innerText="Setup of Netis Group in Kenya";
-    country[0].innerText="Reime Kenya";
-    countryImage.src = "images/kenya.jpg";
-    phoneNumber.innerText="+22 9994786"
-    mail.innerText="kenya@netisgroup.net"
-    address.innerText="the kenya................"
-    header.innerText = "2017"
-    y_tick[0].innerText ="2017"
-})
-// end with gabon
-
-// start with uganda
-uganda.addEventListener('click',()=>{
-    setPara.innerText="Setup of Netis Group in uganda";
-    country[0].innerText="Reime uganda";
-    countryImage.src = "images/uganda.jpg";
-    phoneNumber.innerText="+212 6744988838"
-    mail.innerText="uganda@netisgroup.net"
-    address.innerText="the uganda................"
-    header.innerText = "2013"
-    y_tick[0].innerText ="2013"
-})
-// end with uganda
-
-// start with tanzania
-tanzania.addEventListener('click',()=>{
-    setPara.innerText="Setup of Netis Group in tanzania";
-    country[0].innerText="Reime tanzania";
-    countryImage.src = "images/tanzania.jpg";
-    phoneNumber.innerText="+212 7783338"
-    mail.innerText="tanzania@netisgroup.net"
-    address.innerText="the tanzania................"
-    header.innerText = "2018"
-    y_tick[0].innerText ="2018"
-})
-
-// end with tanzania
+// initialize with the default selected country
+updateCountry('ivorycoast');
+highlightTick(countryData.ivorycoast.year);
